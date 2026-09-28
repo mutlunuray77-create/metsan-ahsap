@@ -34,126 +34,160 @@ export default function Home() {
     null,
   );
 
-  // 4 Uzmanlık Alanı ve Tıklandığında Açılacak Detaylar & Örnek Fotoğraflar
+  // 4 Uzmanlık Alanı (Her biri 4 farklı görsel içerir)
   const categories: CategoryDetail[] = [
     {
       id: "denizcilik",
       num: "01",
-      title: "DENİZCİLİK",
-      subtitle: "Ahşap tekneler, marin iskeleler ve gemiler.",
-      desc: "Tuzlu deniz suyuna, dalga sürtünmesine ve yoğun güneş ışınlarına dayanıklı marin sınıf Iroko ve Burma Teak ahşap uygulamaları. Çelik kazık taşıyıcılar üzerine gizli geçme karkas montajıyla uzun ömürlü kıyı yapıları inşa ediyoruz.",
+      title: "DENİZCİLİK & MARİN AHŞAP",
+      subtitle:
+        "Lüks yat güverteleri, marin oturma grupları ve açık deniz çözümleri.",
+      desc: "Tuzlu deniz suyuna, sert dalga basıncına ve yoğun UV güneş ışınlarına karşı tam mukavemetli Burma Teak ve Afrika Iroko marin ahşap uygulamaları. Balıksırtı derz dolgulu güverte kaplamaları, kavisli merdivenler ve özel yat mobilyaları imalatı.",
       specs: [
-        "A4 kalite marin paslanmaz çelik bağlantı elemanları",
-        "Tuzlu su korozyonuna karşı fırınlanmış Teak & Iroko",
-        "Statik hesaplı çelik taşıyıcı karkas mühendisliği",
-        "Sezonluk marin koruma ve periyodik yağlama garantisi",
+        "A4 marin paslanmaz çelik bağlantı elemanları",
+        "Tuzlu su korozyonuna fırınlanmış 1. sınıf Teak & Iroko",
+        "Statik hesaplı kavisli güverte ve helipad konstrüksiyonu",
+        "Marin sikaflex dolgulu su itici armuz işçiliği",
       ],
       gallery: [
-        { title: "Marin Halatlı Ana Yat İskelesi", image: "/dort.jpeg" },
-        { title: "Geniş Güneşlenme Deck Platformu", image: "/iki.jpeg" },
+        { title: "Yat Ön Güverte Tik Oturma Alanı", image: "/deniz-1.jpeg" },
         {
-          title: "Şantiye Çelik Karkas İskelet Montajı",
-          image: "/before.jpeg",
+          title: "Balıksırtı Güverte & Marin Salon Masası",
+          image: "/deniz-2.jpeg",
         },
-        { title: "Kıyı İskele Geçiş Yolu", image: "/bir.jpeg" },
+        {
+          title: "Işıklandırmalı Marin Güverte Merdiveni",
+          image: "/deniz-3.jpeg",
+        },
+        {
+          title: "Kıyı Kayalık Marin İskele Platformu",
+          image: "/deniz-4.jpeg",
+        },
       ],
     },
     {
       id: "mimari",
       num: "02",
-      title: "MİMARİ",
-      subtitle: "Tarihi konaklar, cephe kaplamaları ve yapılar.",
-      desc: "Kültür varlığı tescilli yalı, konak ve köşklerde geleneksel çatkı teknikleri, el oyması cumba süslemeleri ve kalem işi tavan işçiliklerini aslına sadık kalarak restore ediyor; modern yapılara lüks ahşap dış cephe louvre çözümleri uyguluyoruz.",
+      title: "MİMARİ & CEPHE UYGULAMALARI",
+      subtitle:
+        "Lüks villa cephe kaplamaları, ahşap panjur ve taş konak mimarisi.",
+      desc: "Modern mimari yapılara ve geleneksel taş konaklara değer katan ahşap panjurlar, louvre gölgelendirme sistemleri ve fırınlanmış cephe kaplamaları. Termal genleşmeye dayanıklı gizli karkas bağlantı sistemleriyle uzun ömürlü cephe tasarımları.",
       specs: [
-        "Geleneksel ahşap geçme ve karkas teknikleri",
-        "Emprenyeli yangın ve nem geciktirici koruma",
-        "Aslına uygun röleve ve restorasyon işçiliği",
-        "Katran çamı ve meşe kaset tavan uygulamaları",
+        "Termal emprenyeli yangın ve neme dayanıklı ahşap",
+        "Hareketli ve sabit lamel ahşap panjur kepenk sistemleri",
+        "Taş & masif ahşap karma statik taşıyıcı entegrasyonu",
+        "Mimari projeye özel milimetrik atölye imalatı",
       ],
       gallery: [
-        { title: "Sahil Ahşap Bungalov & Panjur Detayı", image: "/bir.jpeg" },
-        { title: "Masif Ahşap İnce Çatkı Uygulaması", image: "/after.jpeg" },
-        { title: "Taşıyıcı Karkas Çatı İskeleti", image: "/before.jpeg" },
-        { title: "Geleneksel Ahşap Mimari Detaylar", image: "/dort.jpeg" },
+        { title: "Lüks Villa Ahşap Louvre Cephe", image: "/mimari-1.jpeg" },
+        {
+          title: "Şantiye Ahşap Panjur Montaj İmalatı",
+          image: "/mimari-2.jpeg",
+        },
+        {
+          title: "Geniş Açı Masif Ahşap Villa Mimarisi",
+          image: "/mimari-3.jpeg",
+        },
+        {
+          title: "Geleneksel Taş & Ahşap Dağ Evi Projesi",
+          image: "/mimari-4.jpeg",
+        },
       ],
     },
     {
       id: "dismekan",
       num: "03",
-      title: "DIŞ MEKAN",
-      subtitle: "Pergolalar ve dış mekan uygulamaları.",
-      desc: "Açık hava iklim koşullarına dayanıklı lamine ahşap gölgelendirme pergolaları, kış bahçeleri, havuz kenarı ve villa bahçesi için gizli klips vidalamalı masif deck döşemeleriyle doğallığı açık alanlarınıza entegre ediyoruz.",
+      title: "DIŞ MEKAN, DECK & HAVUZ",
+      subtitle:
+        "Sonsuzluk havuzu deckleri, manzara terasları ve açık alan duş üniteleri.",
+      desc: "Açık hava iklim koşullarına dayanıklı lamine ahşap zeminler, kış bahçeleri, havuz kenarı ve villa bahçesi için gizli klips vidalamalı masif deck döşemeleriyle lüks doğallığı yaşam alanlarınıza entegre ediyoruz.",
       specs: [
-        "Gizli klipsli, çıplak ayakla yürümeye uygun deck montajı",
-        "Geniş açıklıklı lamine kiriş ve pergola sistemleri",
+        "Gizli klipsli, çıplak ayakla yürümeye uygun pürüzsüz deck",
+        "Sonsuzluk havuzlarına özel suya dayanıklı tik zemin",
         "UV filtreli bitkisel marin dış mekan yağ koruması",
-        "Havuz ve bahçe mimarisine özel modüler yerleşim",
+        "Bahçe peyzajına entegre ahşap duş kabinleri ve pergolalar",
       ],
       gallery: [
-        { title: "Güneşlenme Deck & Dinlenme Locası", image: "/iki.jpeg" },
-        { title: "Marin Yürüyüş Yolu & İskele Deck", image: "/dort.jpeg" },
-        { title: "Kıyı Dinlenme Evi & Deck Zemin", image: "/bir.jpeg" },
-        { title: "Şantiye Zemin Karkas Kurulumu", image: "/before.jpeg" },
+        {
+          title: "Sonsuzluk Havuzu Kenarı Tik Deck",
+          image: "/dismekan-1.jpeg",
+        },
+        {
+          title: "Deniz Manzaralı Geniş Ahşap Teras Lounge",
+          image: "/dismekan-2.jpeg",
+        },
+        {
+          title: "Bahçe Tipi Ahşap Açık Hava Duş Kabini",
+          image: "/dismekan-3.jpeg",
+        },
+        {
+          title: "Kıyı Şeridi Ahşap Merdiven & Yürüyüş Yolu",
+          image: "/dismekan-4.jpeg",
+        },
       ],
     },
     {
       id: "ozel",
       num: "04",
-      title: "ÖZEL",
-      subtitle: "Özel ahşap üretim projeleri.",
-      desc: "İç mekan mimarisine prestij katan, duvar içine gömülen gizli çelik omurgalarla havada asılı duran LED aydınlatmalı konsol merdivenler, temperli lamine cam korkuluklar ve tek parça gövdeli masif kütük mobilyalar üretiyoruz.",
+      title: "ÖZEL AHŞAP & İÇ MEKAN",
+      subtitle:
+        "LED lineer konsol merdivenler, tavan restorasyonları ve butik zanaat.",
+      desc: "İç mekan mimarisine prestij katan, duvar içine gömülen gizli çelik omurgalarla havada asılı duran LED aydınlatmalı konsol merdivenler, temperli lamine cam korkuluklar, tarihi tavan süslemeleri ve mekana özel butik marangozluk imalatları.",
       specs: [
-        "Duvar içi gizli çelik konsol taşıyıcı statik",
-        "Masif meşe & ceviz basamak altı lineer LED",
-        "10+10 mm rodajlı temperli lamine cam korkuluk",
-        "Mekana özel milimetrik projelendirme ve 3D modelleme",
+        "Duvar içi gizli çelik konsol taşıyıcı statik mühendisliği",
+        "Masif basamak altı sensörlü lineer LED aydınlatma",
+        "Tarihi eser ve kaset tavan restorasyon işçiliği",
+        "10+10 mm rodajlı temperli lamine cam emniyet korkulukları",
       ],
       gallery: [
-        { title: "LED Konsol Merdiven & Cam Korkuluk", image: "/uc.jpeg" },
-        { title: "Masif Ahşap Yüzer Basamak Detayı", image: "/after.jpeg" },
-        { title: "Özel Tasarım İç Mekan İmalatı", image: "/before.jpeg" },
-        { title: "İnce Zanaat Ahşap İşçiliği", image: "/dort.jpeg" },
+        { title: "LED Aydınlatmalı Konsol Merdiven", image: "/ozel-1.jpeg" },
+        {
+          title: "Kalem İşi & Ahşap Tavan Restorasyonu",
+          image: "/ozel-2.jpeg",
+        },
+        { title: "Kıyı Evi Masif Ahşap İç/Dış Zanaat", image: "/ozel-3.jpeg" },
+        { title: "Marin Halat Korkuluklu Yat İskelesi", image: "/ozel-4.jpeg" },
       ],
     },
   ];
 
-  // 4 Seçkin Proje ve Tıklandığında Açılacak Büyük Fotoğraf Modalı
+  // 4 Seçkin Proje (Dikey Kartlar)
   const projects: ProjectDetail[] = [
     {
       cat: "DENİZCİLİK",
-      title: "Kıyı Yat Gövdesi & İskele",
-      loc: "BODRUM, TR",
+      title: "Özel Yat Güverte & Tik Salon",
+      loc: "BODRUM / MARİN, TR",
       year: "2025",
-      image: "/dort.jpeg",
-      wood: "Burma Teak & Iroko Marin Ağaç",
-      desc: "Tuzlu deniz suyuna tam mukavemetli çelik kazık karkas üzerine simetrik güneşlenme cepleri, marin halatlı baba korkuluklar ve yat yanaşma donanımıyla projelendirilen prestijli sahil iskelesi.",
+      image: "/deniz-1.jpeg",
+      wood: "1. Sınıf Burma Teak & Marin Sika",
+      desc: "Açık denizin tuz ve rüzgar şartlarına dayanıklı, balıksırtı armuz dolgulu ve özel kavisli tik koltuk takımıyla donatılmış ana güverte projesi.",
     },
     {
       cat: "MİMARİ",
-      title: "Ahşap Atriyum & Konak",
-      loc: "ANTALYA / TR",
+      title: "Panjurlu Ahşap Villa Cephesi",
+      loc: "BODRUM / YALIKAVAK, TR",
       year: "2024",
-      image: "/bir.jpeg",
-      wood: "Termo-Çam & Masif Kestane",
-      desc: "Kıyı şeridinde saz tavan kaplamalı dinlenme köşkü, doğal ahşap panjur kepenkler ve deniz üstü basamaklı yürüyüş aksıyla entegre edilen özel mimari yapı.",
+      image: "/mimari-1.jpeg",
+      wood: "Termo-Çam & Masif Iroko",
+      desc: "İki katlı modern lüks villanın tüm dış cephesine uygulanan hareketli ahşap gölgelendirme panjurları ve UV filtreli koruyucu dış cephe kaplaması.",
     },
     {
       cat: "DIŞ MEKAN",
-      title: "Liman & Deck Lounge",
-      loc: "İZMİR / TÜRKBÜKÜ, TR",
-      year: "2023",
-      image: "/iki.jpeg",
+      title: "Sonsuzluk Havuzu Tik Deck",
+      loc: "TÜRKBÜKÜ / ÇEŞME, TR",
+      year: "2024",
+      image: "/dismekan-1.jpeg",
       wood: "Fırınlanmış Iroko Masif Deck",
-      desc: "Geniş güneşlenme ve dinlenme terası. UV koruyucu doğal yağ uygulaması ve gizli klips montajı sayesinde çıplak ayak konforu sunan marina dinlenme platformu.",
+      desc: "Denizle bütünleşen havuz çevresinde kayma yapmayan, gizli klips vidalamalı ve periyodik marin yağ korumalı lüks güneşlenme terası.",
     },
     {
       cat: "ÖZEL",
-      title: "İmza Konsol Merdiven",
-      loc: "İSTANBUL, TR",
+      title: "LED Lineer Konsol Merdiven",
+      loc: "İSTANBUL / VİLLA, TR",
       year: "2025",
-      image: "/uc.jpeg",
-      wood: "1. Sınıf Masif Meşe & Temperli Cam",
-      desc: "Duvar içine ankrajlanan çelik konsollarla taşınan yüzer basamaklar. Basamak altı gizli sensörlü lineer LED aydınlatma ve şeffaf temperli lamine cam güvenlik panelleri.",
+      image: "/ozel-1.jpeg",
+      wood: "Masif Meşe & Temperli Lamine Cam",
+      desc: "Gizli duvar içi çelik konsollarla taşınan basamak altı sensörlü lineer LED aydınlatmalı ve şeffaf cam korkuluklu modern mimari merdiven.",
     },
   ];
 
@@ -161,16 +195,23 @@ export default function Home() {
     <div className="min-h-screen bg-[#FBF9F5] text-[#1E2328] selection:bg-[#B68D56] selection:text-white font-sans">
       <Navbar />
 
-      {/* 1. HERO BÖLÜMÜ (Çekiçli Usta & Serif Manşet) */}
+      {/* 1. HERO BÖLÜMÜ (SONSUZ DÖNGÜDE ARKA PLAN VİDEOSU) */}
       <section
         id="hero"
         className="relative min-h-[92vh] flex flex-col justify-end pb-16 pt-32 bg-[#12161A] text-white overflow-hidden px-6"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-45 scale-105"
-          style={{ backgroundImage: "url('/before.jpeg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#12161A] via-[#12161A]/75 to-[#12161A]/40" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-55"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#12161A] via-[#12161A]/70 to-[#12161A]/40" />
 
         <div className="relative max-w-4xl mx-auto w-full z-10">
           <div className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#D4A373] mb-3">
@@ -211,7 +252,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. DEĞERLERİMİZ (01-05 Kutucukları) */}
+      {/* 2. DEĞERLERİMİZ (01-05) */}
       <section className="py-20 max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#B68D56] block mb-2">
@@ -245,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. UZMANLIK ALANLARI (Tıklanabilir 4 Geniş Kart & Açılır Galeri) */}
+      {/* 3. UZMANLIK ALANLARI (Tıklanabilir 4 Ayrı Kategori Kartı) */}
       <section id="uzmanlik" className="py-16 max-w-5xl mx-auto px-6">
         <div className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
@@ -257,20 +298,20 @@ export default function Home() {
             </h2>
           </div>
           <span className="text-xs text-stone-500 font-medium">
-            Detaylı açıklama ve örnekler için kartlara tıklayın →
+            Detaylı açıklama ve galeri için karta tıklayın →
           </span>
         </div>
 
         <div className="space-y-4">
           {categories.map((cat, idx) => {
-            const bgImage =
+            const coverImage =
               idx === 0
-                ? "/dort.jpeg"
+                ? "/deniz-1.jpeg"
                 : idx === 1
-                  ? "/bir.jpeg"
+                  ? "/mimari-1.jpeg"
                   : idx === 2
-                    ? "/iki.jpeg"
-                    : "/uc.jpeg";
+                    ? "/dismekan-1.jpeg"
+                    : "/ozel-1.jpeg";
             return (
               <div
                 key={cat.id}
@@ -278,7 +319,7 @@ export default function Home() {
                 className="group relative rounded-3xl overflow-hidden min-h-[220px] sm:min-h-[260px] flex flex-col justify-between p-7 text-white shadow-md cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]"
               >
                 <img
-                  src={bgImage}
+                  src={coverImage}
                   alt={cat.title}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.45]"
                 />
@@ -305,11 +346,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. GÖRSEL ARA KATMAN: KÜTÜK & USTALIK */}
+      {/* 4. GÖRSEL DOKU: KÜTÜK & USTALIK */}
       <section className="relative py-28 my-10 bg-[#161412] text-white text-center overflow-hidden px-6">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 brightness-75"
-          style={{ backgroundImage: "url('/before.jpeg')" }}
+          style={{ backgroundImage: "url('/mimari-4.jpeg')" }}
         />
         <div className="absolute inset-0 bg-[#161412]/60" />
 
@@ -327,7 +368,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SEÇKİN PROJELER (Tıklanabilir 4 Dikey Kart & Tam Ekran Lightbox) */}
+      {/* 5. SEÇKİN PROJELER (Tıklanabilir 4 Dikey Kart) */}
       <section id="projeler" className="py-20 max-w-5xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
@@ -379,11 +420,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. GÖRSEL ARA KATMAN: DENİZ USTALIĞI & GULET */}
+      {/* 6. GÖRSEL DOKU: DENİZ & AÇIK DENİZ BEYANI */}
       <section className="relative py-28 my-10 bg-[#0F141C] text-white text-center overflow-hidden px-6">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 brightness-75"
-          style={{ backgroundImage: "url('/dort.jpeg')" }}
+          style={{ backgroundImage: "url('/deniz-2.jpeg')" }}
         />
         <div className="absolute inset-0 bg-[#0F141C]/65" />
 
@@ -485,7 +526,7 @@ export default function Home() {
         </a>
       </section>
 
-      {/* 9. BİR SONRAKİ PROJENİZ (KOYU CTA ALANI) */}
+      {/* 9. BİR SONRAKİ PROJENİZ (KOYU CTA) */}
       <section className="bg-[#12161A] text-white py-24 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#D4A373] block mb-3">
@@ -500,7 +541,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto">
             <a
-              href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20projemiz%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyoruz."
+              href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20web%20sitenizden%20ula%C5%9Ft%C4%B1m.%20Projemiz%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyoruz."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B68D56] hover:bg-[#A37844] text-white px-8 py-4 rounded-xl font-medium text-sm transition-all"
@@ -586,7 +627,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- MODAL 1: UZMANLIK ALANLARI AÇILIR PENCERESİ & 4 ÖRNEK GÖRSEL --- */}
+      {/* --- MODAL 1: UZMANLIK ALANLARI GALERİSİ (HER BİRİ İÇİN AYRI 4 FOTOĞRAF) --- */}
       {activeCategory && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div className="bg-[#1C2024] text-white border border-stone-700 w-full max-w-3xl rounded-3xl p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in-95 my-8">
@@ -647,7 +688,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20bu%20kategorideki%20projemiz%20i%C3%A7in%20bilgi%20ve%20fiyat%20almak%20istiyoruz."
+                href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20web%20sitenizdeki%20bu%20kategori%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20almak%20istiyoruz."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-[#B68D56] hover:bg-[#A37844] text-white py-3.5 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition shadow-lg"
@@ -665,7 +706,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* --- MODAL 2: SEÇKİN PROJELER TAM EKRAN BÜYÜK RESİM & KÜNYE --- */}
+      {/* --- MODAL 2: SEÇKİN PROJE BÜYÜK RESİM & KÜNYE DETAYI --- */}
       {activeProject && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div className="bg-[#1C2024] text-white border border-stone-700 w-full max-w-4xl rounded-3xl overflow-hidden relative shadow-2xl animate-in fade-in zoom-in-95 my-8">
