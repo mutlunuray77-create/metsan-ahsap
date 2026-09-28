@@ -4,14 +4,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingChat from "./components/FloatingChat";
-import {
-  ArrowRight,
-  X,
-  MapPin,
-  Calendar,
-  CheckCircle2,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, X, MapPin, Calendar, CheckCircle2 } from "lucide-react";
 
 interface CategoryDetail {
   id: string;
@@ -41,13 +34,14 @@ export default function Home() {
     null,
   );
 
+  // 4 Uzmanlık Alanı ve Tıklandığında Açılacak Detaylar & Örnek Fotoğraflar
   const categories: CategoryDetail[] = [
     {
       id: "denizcilik",
       num: "01",
-      title: "DENİZCİLİK & MARİN İSKELE",
-      subtitle: "Ahşap tekneler, marin iskeleler ve kıyı platformları.",
-      desc: "Tuzlu deniz suyuna, dalga sürtünmesine ve yoğun Akdeniz/Ege güneşine dayanıklı marin sınıf Iroko ve Burma Teak ahşap uygulamaları. Çelik kazık taşıyıcılar üzerine gizli geçme karkas montajıyla uzun ömürlü kıyı yapıları inşa ediyoruz.",
+      title: "DENİZCİLİK",
+      subtitle: "Ahşap tekneler, marin iskeleler ve gemiler.",
+      desc: "Tuzlu deniz suyuna, dalga sürtünmesine ve yoğun güneş ışınlarına dayanıklı marin sınıf Iroko ve Burma Teak ahşap uygulamaları. Çelik kazık taşıyıcılar üzerine gizli geçme karkas montajıyla uzun ömürlü kıyı yapıları inşa ediyoruz.",
       specs: [
         "A4 kalite marin paslanmaz çelik bağlantı elemanları",
         "Tuzlu su korozyonuna karşı fırınlanmış Teak & Iroko",
@@ -67,8 +61,8 @@ export default function Home() {
     {
       id: "mimari",
       num: "02",
-      title: "MİMARİ & RESTORASYON",
-      subtitle: "Tarihi konaklar, cephe kaplamaları ve anıt yapılar.",
+      title: "MİMARİ",
+      subtitle: "Tarihi konaklar, cephe kaplamaları ve yapılar.",
       desc: "Kültür varlığı tescilli yalı, konak ve köşklerde geleneksel çatkı teknikleri, el oyması cumba süslemeleri ve kalem işi tavan işçiliklerini aslına sadık kalarak restore ediyor; modern yapılara lüks ahşap dış cephe louvre çözümleri uyguluyoruz.",
       specs: [
         "Geleneksel ahşap geçme ve karkas teknikleri",
@@ -86,9 +80,9 @@ export default function Home() {
     {
       id: "dismekan",
       num: "03",
-      title: "DIŞ MEKAN & PERGOLA",
-      subtitle: "Pergolalar, güneşlenme deckleri ve dış mekan yaşam alanları.",
-      desc: "Açık hava koşullarına dayanıklı lamine ahşap gölgelendirme pergolaları, kış bahçeleri, havuz kenarı ve villa bahçesi için gizli klips vidalamalı masif deck döşemeleriyle doğallığı açık alanlarınıza entegre ediyoruz.",
+      title: "DIŞ MEKAN",
+      subtitle: "Pergolalar ve dış mekan uygulamaları.",
+      desc: "Açık hava iklim koşullarına dayanıklı lamine ahşap gölgelendirme pergolaları, kış bahçeleri, havuz kenarı ve villa bahçesi için gizli klips vidalamalı masif deck döşemeleriyle doğallığı açık alanlarınıza entegre ediyoruz.",
       specs: [
         "Gizli klipsli, çıplak ayakla yürümeye uygun deck montajı",
         "Geniş açıklıklı lamine kiriş ve pergola sistemleri",
@@ -105,8 +99,8 @@ export default function Home() {
     {
       id: "ozel",
       num: "04",
-      title: "ÖZEL AHŞAP & KONSOL MERDİVEN",
-      subtitle: "Konsol yüzer merdivenler, masif masalar ve butik imalat.",
+      title: "ÖZEL",
+      subtitle: "Özel ahşap üretim projeleri.",
       desc: "İç mekan mimarisine prestij katan, duvar içine gömülen gizli çelik omurgalarla havada asılı duran LED aydınlatmalı konsol merdivenler, temperli lamine cam korkuluklar ve tek parça gövdeli masif kütük mobilyalar üretiyoruz.",
       specs: [
         "Duvar içi gizli çelik konsol taşıyıcı statik",
@@ -123,6 +117,7 @@ export default function Home() {
     },
   ];
 
+  // 4 Seçkin Proje ve Tıklandığında Açılacak Büyük Fotoğraf Modalı
   const projects: ProjectDetail[] = [
     {
       cat: "DENİZCİLİK",
@@ -136,7 +131,7 @@ export default function Home() {
     {
       cat: "MİMARİ",
       title: "Ahşap Atriyum & Konak",
-      loc: "ORDU / FATSA, TR",
+      loc: "ANTALYA / TR",
       year: "2024",
       image: "/bir.jpeg",
       wood: "Termo-Çam & Masif Kestane",
@@ -145,8 +140,8 @@ export default function Home() {
     {
       cat: "DIŞ MEKAN",
       title: "Liman & Deck Lounge",
-      loc: "TÜRKBÜKÜ, TR",
-      year: "2024",
+      loc: "İZMİR / TÜRKBÜKÜ, TR",
+      year: "2023",
       image: "/iki.jpeg",
       wood: "Fırınlanmış Iroko Masif Deck",
       desc: "Geniş güneşlenme ve dinlenme terası. UV koruyucu doğal yağ uygulaması ve gizli klips montajı sayesinde çıplak ayak konforu sunan marina dinlenme platformu.",
@@ -163,19 +158,19 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F7F5F0] text-[#1E1F22] selection:bg-[#B68D56] selection:text-white font-sans">
+    <div className="min-h-screen bg-[#FBF9F5] text-[#1E2328] selection:bg-[#B68D56] selection:text-white font-sans">
       <Navbar />
 
-      {/* 1. HERO */}
+      {/* 1. HERO BÖLÜMÜ (Çekiçli Usta & Serif Manşet) */}
       <section
         id="hero"
-        className="relative min-h-[92vh] flex flex-col justify-end pb-16 pt-32 bg-[#14171A] text-white overflow-hidden px-6"
+        className="relative min-h-[92vh] flex flex-col justify-end pb-16 pt-32 bg-[#12161A] text-white overflow-hidden px-6"
       >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-45 scale-105"
-          style={{ backgroundImage: "url('/dort.jpeg')" }}
+          style={{ backgroundImage: "url('/before.jpeg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#14171A] via-[#14171A]/70 to-[#14171A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#12161A] via-[#12161A]/75 to-[#12161A]/40" />
 
         <div className="relative max-w-4xl mx-auto w-full z-10">
           <div className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#D4A373] mb-3">
@@ -204,7 +199,7 @@ export default function Home() {
               <ArrowRight size={16} />
             </a>
             <a
-              href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20teklif%20ve%20ke%C5%9Fif%20almak%20istiyorum."
+              href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20web%20sitenizden%20ula%C5%9Ft%C4%B1m.%20Teklif%20almak%20istiyorum."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-stone-900/80 hover:bg-stone-800 text-stone-200 border border-stone-700/60 px-7 py-4 rounded-xl font-medium text-sm transition-all duration-300"
@@ -216,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. DEĞERLERİMİZ */}
+      {/* 2. DEĞERLERİMİZ (01-05 Kutucukları) */}
       <section className="py-20 max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#B68D56] block mb-2">
@@ -250,7 +245,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. UZMANLIK ALANLARI (Tıklanabilir & Detaylı Açılır Modal) */}
+      {/* 3. UZMANLIK ALANLARI (Tıklanabilir 4 Geniş Kart & Açılır Galeri) */}
       <section id="uzmanlik" className="py-16 max-w-5xl mx-auto px-6">
         <div className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
@@ -262,7 +257,7 @@ export default function Home() {
             </h2>
           </div>
           <span className="text-xs text-stone-500 font-medium">
-            Detaylar ve galeri için kartlara tıklayın →
+            Detaylı açıklama ve örnekler için kartlara tıklayın →
           </span>
         </div>
 
@@ -310,7 +305,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. USTALIK DETAYI */}
+      {/* 4. GÖRSEL ARA KATMAN: KÜTÜK & USTALIK */}
       <section className="relative py-28 my-10 bg-[#161412] text-white text-center overflow-hidden px-6">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 brightness-75"
@@ -332,7 +327,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SEÇKİN PROJELER (Tıklanabilir Büyük Fotoğraf & Detay Modalı) */}
+      {/* 5. SEÇKİN PROJELER (Tıklanabilir 4 Dikey Kart & Tam Ekran Lightbox) */}
       <section id="projeler" className="py-20 max-w-5xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
@@ -344,8 +339,8 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-stone-500 max-w-md font-light leading-relaxed">
-            Fotoğraflara tıklayarak büyük halini ve projede uygulanan zanaat
-            detaylarını inceleyebilirsiniz.
+            Fotoğrafların üzerine tıklayarak büyük halini ve projede uygulanan
+            mühendislik detaylarını inceleyebilirsiniz.
           </p>
         </div>
 
@@ -384,7 +379,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. SÜREÇ */}
+      {/* 6. GÖRSEL ARA KATMAN: DENİZ USTALIĞI & GULET */}
+      <section className="relative py-28 my-10 bg-[#0F141C] text-white text-center overflow-hidden px-6">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40 brightness-75"
+          style={{ backgroundImage: "url('/dort.jpeg')" }}
+        />
+        <div className="absolute inset-0 bg-[#0F141C]/65" />
+
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#D4A373] block mb-3">
+            DENİZ USTALIĞI
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-serif leading-tight mb-4">
+            Denizle Buluşan Ustalık.
+          </h2>
+          <p className="text-stone-300 text-sm font-light max-w-lg mx-auto leading-relaxed mb-4">
+            Her detay, yılların deneyimiyle şekillenir.
+          </p>
+          <div className="text-sm font-serif italic text-amber-200/90 tracking-wider">
+            "Ham Ahşaptan Açık Deniz'e."
+          </div>
+        </div>
+      </section>
+
+      {/* 7. SÜREÇ (01-05 ADIMLAR) */}
       <section
         id="surec"
         className="py-20 bg-white border-y border-stone-200/80"
@@ -443,7 +462,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. HAKKIMIZDA */}
+      {/* 8. HAKKIMIZDA */}
       <section
         id="hakkimizda"
         className="py-24 max-w-4xl mx-auto px-6 text-center"
@@ -466,8 +485,8 @@ export default function Home() {
         </a>
       </section>
 
-      {/* 8. BİR SONRAKİ PROJENİZ */}
-      <section className="bg-[#14171A] text-white py-24 px-6 text-center">
+      {/* 9. BİR SONRAKİ PROJENİZ (KOYU CTA ALANI) */}
+      <section className="bg-[#12161A] text-white py-24 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#D4A373] block mb-3">
             METSAN AHŞAP
@@ -499,7 +518,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. İLETİŞİM & HARİTA */}
+      {/* 10. İLETİŞİM & HARİTA */}
       <section id="iletisim" className="py-24 max-w-5xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#B68D56] block mb-2">
@@ -567,7 +586,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- MODAL 1: UZMANLIK ALANLARI DETAYI & 4 ÖRNEK GÖRSEL LİGHTBOX --- */}
+      {/* --- MODAL 1: UZMANLIK ALANLARI AÇILIR PENCERESİ & 4 ÖRNEK GÖRSEL --- */}
       {activeCategory && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div className="bg-[#1C2024] text-white border border-stone-700 w-full max-w-3xl rounded-3xl p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in-95 my-8">
@@ -589,7 +608,6 @@ export default function Home() {
               {activeCategory.desc}
             </p>
 
-            {/* Mühendislik Standartları */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8 bg-stone-900/80 p-5 rounded-2xl border border-stone-800">
               {activeCategory.specs.map((spec, i) => (
                 <div
@@ -602,7 +620,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* 4 Örnek Uygulama Görseli */}
             <div className="mb-8">
               <div className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-3">
                 Uygulama Örnekleri & Sahadan Kareler:
@@ -628,7 +645,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Alt Butonlar */}
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20bu%20kategorideki%20projemiz%20i%C3%A7in%20bilgi%20ve%20fiyat%20almak%20istiyoruz."
@@ -649,7 +665,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* --- MODAL 2: SEÇKİN PROJE TAM EKRAN BÜYÜK RESİM & DETAY LİGHTBOX --- */}
+      {/* --- MODAL 2: SEÇKİN PROJELER TAM EKRAN BÜYÜK RESİM & KÜNYE --- */}
       {activeProject && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div className="bg-[#1C2024] text-white border border-stone-700 w-full max-w-4xl rounded-3xl overflow-hidden relative shadow-2xl animate-in fade-in zoom-in-95 my-8">
@@ -661,7 +677,6 @@ export default function Home() {
               <X size={20} />
             </button>
 
-            {/* Büyük Fotoğraf Alanı */}
             <div className="relative w-full h-80 sm:h-[420px] bg-black">
               <img
                 src={activeProject.image}
@@ -680,7 +695,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Açıklama & Künye */}
             <div className="p-6 sm:p-8">
               <div className="flex flex-wrap gap-4 sm:gap-8 pb-6 border-b border-stone-800 text-xs text-stone-300">
                 <div className="flex items-center gap-2">
@@ -709,7 +723,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href={`https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20web%20sitenizdeki%20"${encodeURIComponent(activeProject.title)}"%20projesi%20hakk%C4%B1nda%20benzer%20bir%20uygulama%20i%C3%A7in%20teklif%20almak%20istiyorum.`}
+                  href={`https://wa.me/905422387979?text=Merhaba%20Metin%20Bey,%20web%20sitenizdeki%20"${encodeURIComponent(activeProject.title)}"%20projesi%20hakk%C4%B1nda%20ke%C5%9Fif%20ve%20fiyat%20almak%20istiyorum.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 bg-[#B68D56] hover:bg-[#A37844] text-white py-4 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition shadow-lg"
