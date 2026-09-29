@@ -589,14 +589,14 @@ export default function Home() {
             </a>
 
             <a
-              href="mailto:hello@metsanahsap.com"
+              href="mailto:metsanahsap@gmail.com"
               className="p-6 rounded-2xl bg-white border border-stone-200/80 hover:border-[#B68D56] transition-colors shadow-sm block group"
             >
               <div className="text-[10px] font-bold text-stone-400 tracking-widest uppercase">
                 KURUMSAL E-POSTA
               </div>
               <div className="text-xl font-bold font-serif text-[#1C1F22] mt-1 group-hover:text-[#B68D56] transition-colors">
-                hello@metsanahsap.com
+                metsanahsap@gmail.com
               </div>
             </a>
 
