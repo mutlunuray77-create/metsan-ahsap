@@ -1,96 +1,77 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, ShieldCheck, TreePine, Award, Hammer, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center pt-24 pb-16 bg-[#0B132B] text-[#F9F7F2] overflow-hidden">
-      {/* Arka Plan & Karanlık Degrade Katmanı */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30 scale-105"
-        style={{ backgroundImage: "url('/dort.jpeg')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/90 to-[#0B132B]/70" />
-
-      <div className="relative max-w-7xl mx-auto px-6 z-10 w-full">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-bold mb-6 tracking-widest uppercase backdrop-blur-md">
-            <Sparkles size={14} /> Bodrum & Ege Bölgesi Nitelikli Ahşap Mimarisi
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] mb-6">
-            Doğallığı ve Estetiği <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
-              Yaşam Alanlarınıza
-            </span> Taşıyoruz.
-          </h1>
-
-          <p className="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed font-normal max-w-2xl">
-            Marin Teak & Iroko iskelelerden lüks villa konsol merdivenlerine, tarihi restorasyondan mekana özel butik üretime kadar kusursuz mühendislik imzası.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-            <a 
-              href="#talep" 
-              className="inline-flex items-center justify-center gap-3 bg-amber-600 hover:bg-amber-500 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-xl shadow-amber-600/30 hover:scale-105 active:scale-95"
-            >
-              <span>Ücretsiz Keşif & Teklif Al</span>
-              <ArrowRight size={18} />
-            </a>
-            <a 
-              href="#projeler" 
-              className="inline-flex items-center justify-center border border-slate-700 hover:border-amber-500 hover:text-amber-400 bg-slate-900/60 backdrop-blur-md text-slate-200 font-semibold px-8 py-4 rounded-xl transition"
-            >
-              Tamamlanan Projeler
-            </a>
-          </div>
-        </div>
-
-        {/* Neden Biz? Barı */}
-        <div className="mt-16 pt-10 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/20">
-              <Award size={24} />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white">30+ Yıl</div>
-              <div className="text-xs text-slate-400 font-medium">Kuşaktan Kuşağa Ustalık</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
-              <TreePine size={24} />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white">1. Sınıf Masif</div>
-              <div className="text-xs text-slate-400 font-medium">Sertifikalı Teak & Meşe</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/20">
-              <ShieldCheck size={24} />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white">%100 Dayanım</div>
-              <div className="text-xs text-slate-400 font-medium">Marin Statik & Koruma</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
-              <Hammer size={24} />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white">Butik Üretim</div>
-              <div className="text-xs text-slate-400 font-medium">Milimetrik Montaj</div>
-            </div>
-          </div>
-        </div>
-
+    <section
+      id="hero"
+      className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-black"
+    >
+      {/* Arka Plan Videosu */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
+        {/* Karartma ve Şık Gradyan Katmanı */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-black/50 to-black/70" />
       </div>
+
+      {/* İçerik / Tipografi */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center pt-16">
+        {/* Üst Rozet / Alt Başlık */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium tracking-[0.25em] uppercase mb-8 backdrop-blur-sm animate-fade-in">
+          Metsan Ahşap • Ustalık • Mimari • Denizcilik
+        </div>
+
+        {/* Ana Başlık */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-6 max-w-4xl drop-shadow-lg">
+          AHŞABIN SINIRLARINI <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-200 to-amber-400">
+            YENİDEN İNŞA EDİYORUZ.
+          </span>
+        </h1>
+
+        {/* Açıklama Metni */}
+        <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed mb-10">
+          METSAN AHŞAP, geleneksel ustalığı modern üretim anlayışıyla
+          birleştirerek ahşaptan kalıcı yapılar, özel tasarımlar ve büyük
+          ölçekli marin projeler üretiyor.
+        </p>
+
+        {/* Aksiyon Butonları */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <Link
+            href="#uzmanlik"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#d4af37] hover:bg-[#c39e2d] text-slate-950 font-semibold px-8 py-3.5 rounded-lg text-sm transition-all duration-300 shadow-lg shadow-amber-500/20 group"
+          >
+            <span>Projelerimizi Keşfedin</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          <a
+            href="https://wa.me/905422387979?text=Merhaba,%20projemiz%20için%20fiyat%20teklifi%20almak%20istiyorum."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-medium px-8 py-3.5 rounded-lg text-sm backdrop-blur-sm transition-all duration-300"
+          >
+            <span>Teklif Al</span>
+            <ArrowRight className="w-4 h-4 opacity-70" />
+          </a>
+        </div>
+      </div>
+
+      {/* Alt Yumuşak Geçiş Gradyanı */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#070b14] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

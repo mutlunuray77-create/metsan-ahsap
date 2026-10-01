@@ -1,115 +1,124 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "ANA SAYFA", href: "#hero" },
+    { name: "HAKKIMIZDA", href: "#hakkimizda" },
+    { name: "HİZMETLER", href: "#hizmetler" },
+    { name: "UZMANLIK ALANLARIMIZ", href: "#uzmanlik" },
+    { name: "KATALOG", href: "#katalog" },
+    { name: "İLETİŞİM", href: "#iletisim" },
+  ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1C2024]/95 backdrop-blur-md border-b border-stone-800 text-white">
-      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Sol Logo */}
-        <a href="#hero" className="flex items-center gap-3">
-          <div className="w-10 h-10 relative bg-white/10 rounded-lg p-1.5 flex items-center justify-center border border-white/20">
-            <Image
-              src="/logo.jpeg"
-              alt="Metsan Ahşap"
-              width={32}
-              height={32}
-              className="object-contain invert"
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-[#080d1a]/95 backdrop-blur-md py-3 shadow-xl border-b border-slate-800"
+          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-4"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        {/* Logo Alanı: Orijinal Rozet + Kurumsal Tipografi */}
+        <Link href="#hero" className="flex items-center gap-3.5 group">
+          <div className="relative h-11 w-11 rounded-lg overflow-hidden border border-amber-400/40 p-1 bg-white/95 shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+            <img
+              src="/metsanahsaplogo.jpeg"
+              alt="Metsan Ahşap Logo"
+              className="h-full w-full object-contain"
             />
           </div>
-          <div>
-            <span className="font-serif tracking-widest text-sm font-bold block">
-              METSAN AHŞAP
+
+          <div className="border-l border-amber-400/30 pl-3 py-0.5">
+            <span className="font-serif tracking-widest text-lg font-bold text-white block leading-tight">
+              METSAN <span className="text-amber-400">AHŞAP</span>
             </span>
-            <span className="text-[9px] tracking-[0.2em] text-[#D4A373] uppercase block -mt-0.5 font-light">
+            <span className="block text-[9px] tracking-[0.22em] text-slate-300 font-sans uppercase">
               Tasarım & Uygulama
             </span>
           </div>
-        </a>
+        </Link>
 
-        {/* Masaüstü Menü */}
-        <nav className="hidden md:flex items-center gap-8 text-xs tracking-wider uppercase text-stone-300 font-medium">
-          <a href="#hero" className="hover:text-white transition">
-            Ana Sayfa
-          </a>
-          <a href="#hakkimizda" className="hover:text-white transition">
-            Hakkımızda
-          </a>
-          <a href="#uzmanlik" className="hover:text-white transition">
-            Uzmanlık Alanlarımız
-          </a>
-          <a href="#projeler" className="hover:text-white transition">
-            Projeler
-          </a>
-          <a href="#surec" className="hover:text-white transition">
-            Süreç
-          </a>
-          <a href="#iletisim" className="hover:text-white transition">
-            İletişim
-          </a>
-        </nav>
+        {/* Masaüstü Menü Linkleri */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-xs font-medium tracking-wider text-slate-200 hover:text-amber-400 transition-colors duration-200"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
 
-        {/* Mobil Menü Butonu (Ekran görüntündeki yuvarlak buton) */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden w-11 h-11 rounded-full border border-stone-700 bg-stone-900/80 flex items-center justify-center text-white"
-          aria-label="Menüyü Aç"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Sağ Buton: Lüks Keşif Talebi */}
+        <div className="hidden md:flex items-center">
+          <a
+            href="https://wa.me/905422387979?text=Merhaba,%20Metsan%20Ah%C5%9Fap%20projeleriniz%20hakk%C4%B1nda%20ke%C5%9Fif%20ve%20detayl%C4%B1%20bilgi%20almak%20istiyorum."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 border border-amber-400/60 bg-amber-400/10 hover:bg-amber-400 text-amber-300 hover:text-slate-950 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-md"
+          >
+            <span>Keşif & Proje Talebi</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        {/* Mobil Menü Butonu */}
+        <div className="lg:hidden flex items-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-white p-2 focus:outline-none"
+            aria-label="Menü"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobil Açılır Menü */}
-      {open && (
-        <div className="md:hidden bg-[#1C2024] border-b border-stone-800 px-6 py-8 flex flex-col gap-5 text-sm tracking-wider uppercase font-serif">
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#080d1a] border-b border-slate-800 px-6 py-4 space-y-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm font-medium text-slate-200 hover:text-amber-400 py-2 border-b border-slate-800/50"
+            >
+              {link.name}
+            </Link>
+          ))}
           <a
-            href="#hero"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#D4A373]"
+            href="https://wa.me/905422387979"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 border border-amber-400 bg-amber-400 text-slate-950 py-2.5 rounded-lg text-xs font-semibold mt-3"
           >
-            Ana Sayfa
-          </a>
-          <a
-            href="#hakkimizda"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#D4A373]"
-          >
-            Hakkımızda
-          </a>
-          <a
-            href="#uzmanlik"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#D4A373]"
-          >
-            Uzmanlık Alanlarımız
-          </a>
-          <a
-            href="#projeler"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#D4A373]"
-          >
-            Projeler
-          </a>
-          <a
-            href="#surec"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#D4A373]"
-          >
-            Süreç
-          </a>
-          <a
-            href="#iletisim"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#D4A373]"
-          >
-            İletişim
+            Keşif & Proje Talebi
           </a>
         </div>
       )}
-    </header>
+    </nav>
   );
 }
