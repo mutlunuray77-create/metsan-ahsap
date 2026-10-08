@@ -1,149 +1,284 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight, X, Sparkles, ShieldCheck, Compass } from "lucide-react";
-
-interface ProjectItem {
-  id: string;
-  category: "all" | "marin" | "cephe" | "deck" | "ic-mekan";
-  categoryLabel: string;
-  title: string;
-  tagline: string;
-  material: string;
-  coverImage: string;
-  description: string;
-  specs: string[];
-  gallery: {
-    title: string;
-    url: string;
-  }[];
-}
+import { Ship, Home, Trees, Sparkles, ZoomIn, X } from "lucide-react";
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState<string>("all");
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(
-    null,
-  );
+  const [activeTab, setActiveTab] = useState("all");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const projects: ProjectItem[] = [
+  const categories = [
+    { id: "all", name: "TÜM PROJELER", icon: Sparkles },
+    { id: "deniz", name: "DENİZCİLİK & GÜVERTE", icon: Ship },
+    { id: "mimari", name: "MİMARİ & DIŞ CEPHE", icon: Home },
+    { id: "dismekan", name: "DIŞ MEKAN & DECK", icon: Trees },
+    { id: "ozel", name: "ÖZEL İÇ MEKAN & MERDİVEN", icon: Sparkles },
+  ];
+
+  // Her kategoride tam 8'er adet proje fotoğrafı
+  const projects = [
+    // ---------------- DENİZCİLİK & GÜVERTE (8 ADET) ----------------
     {
-      id: "marin-1",
-      category: "marin",
-      categoryLabel: "Marin Ahşap",
-      title: "Denizcilik & Marin Ahşap",
-      tagline:
-        "Açık deniz ve tuzlu su şartlarına tam dayanıklı güverte ve armuz mühendisliği.",
-      material: "1. Sınıf Burma Teak • Marin Armuz • A4 Paslanmaz",
-      coverImage: "/deniz-1.jpeg",
-      description:
-        "Tuzlu su, yüksek UV ve sert açık deniz şartlarına karşı en üstün direnci sunan Burma Tik ağacı, marin armuz yalıtımı ve paslanmaz altyapıyla süperyat güverteleri ve deniz iskeleleri imalatı.",
-      specs: [
-        "1. Sınıf Burma Teak Güverte Kaplaması",
-        "Marin Sika & Armuz Yalıtım Sistemleri",
-        "Kavisli Basamak & Gizli LED Aydınlatma",
-        "A4 Paslanmaz Çelik Gizli Bağlantı Elemanları",
-      ],
-      gallery: [
-        { title: "Süperyat Güverte & Helikopter Pisti", url: "/deniz-1.jpeg" },
-        { title: "Açık Deniz Ahşap İskele Platformu", url: "/deniz-2.jpeg" },
-        { title: "Su Üstü Masif Ahşap Loca İmalatı", url: "/deniz-4.jpeg" },
-        { title: "Tik Güverte Özel Kamara İşçiliği", url: "/deniz-5.jpeg" },
-      ],
+      id: 1,
+      category: "deniz",
+      title: "Süperyat Tik Güverte & Helikopter Pisti",
+      desc: "Burma Tik marin armuz ve milimetrik kavisli güverte kaplaması",
+      image: "/deniz-1.jpeg",
+      tag: "Süperyat Güverte",
     },
     {
-      id: "cephe-1",
-      category: "cephe",
-      categoryLabel: "Mimari & Cephe",
-      title: "Mimari & Cephe Uygulamaları",
-      tagline:
-        "Hava sirkülasyonlu, gizli karkaslı modern villa ve dış cephe louvre sistemleri.",
-      material: "Thermo-İroko • Gizli Alüminyum Karkas • Ahşap Panjur",
-      // Kapak görseli olarak doğrudan modern villa lamel cephesini veya hareketli panjuru koyuyoruz:
-      coverImage: "/mimari-2.jpeg",
-      description:
-        "Dört mevsim dış iklim koşullarına dayanıklı termal işlem görmüş iroko profiller, hareketli ahşap güneş kırıcı panjurlar ve hava sirkülasyonlu modern mimari dış cephe louvre sistemleri.",
-      specs: [
-        "Thermo-Wood İroko & Dişbudak Profiller",
-        "Güneş Kırıcı Hareketli Louvre & Panjur Sistemleri",
-        "Hava Sirkülasyonlu ve Isı Köprüsüz Alt Karkas",
-        "Gizli Klipsli Çivisiz Dış Cephe Montajı",
-      ],
-      gallery: [
-        { title: "Modern Villa Lamel Dış Cephe", url: "/mimari-2.jpeg" },
-        {
-          title: "Villa Dış Cephe Hareketli Ahşap Panjur",
-          url: "/mimari-5.jpeg",
-        },
-        {
-          title: "Doğal Taş & Masif Ahşap Entegrasyonu",
-          url: "/mimari-3.jpeg",
-        },
-        { title: "Güneş Kırıcı Ahşap Lamel Sistemleri", url: "/mimari-4.jpeg" },
-      ],
+      id: 2,
+      category: "deniz",
+      title: "Özel Tasarım Marin Güverte İmalatı",
+      desc: "Tuzlu suya ve zorlu açık deniz koşullarına tam dirençli ahşap",
+      image: "/deniz-2.jpeg",
+      tag: "Marin Ahşap",
     },
     {
-      id: "deck-1",
-      category: "deck",
-      categoryLabel: "Dış Mekan & Deck",
-      title: "Dış Mekan & Deck Sistemleri",
-      tagline:
-        "Islak zeminlerde kaymaz, su tahliyeli profesyonel teras ve havuz karkasları.",
-      material: "Doğal İroko • Teak • Klor & Su Dirençli Yağlar",
-      // Duşluk ünitesi ve açık hava zeminleri tam olarak bu alana ait:
-      coverImage: "/dismekan-1.jpeg",
-      description:
-        "Klorlu havuz sularına, yoğun güneş ışığına ve neme karşı özel yağlarla korunan; su tahliye kanallı gizli karkas üzerine kaymaz ahşap deck ve açık alan mimari üniteleri.",
-      specs: [
-        "Havuz Kenarı & Bahçe Kaymaz Ahşap Deck",
-        "Masif Ahşap Açık Alan Bahçe Duşluk Üniteleri",
-        "Eğimli Zeminlere Özel Statik Taşıyıcı Karkas",
-        "Gizli Klipsli Su Tahliyeli Zemin Montajı",
-      ],
-      gallery: [
-        {
-          title: "Masif Ahşap Açık Alan Bahçe Duşluğu",
-          url: "/dismekan-1.jpeg",
-        },
-        {
-          title: "Deniz Kenarı Teras Deck & Merdiven",
-          url: "/dismekan-2.jpeg",
-        },
-        { title: "Havuz Başı İroko Güverte Zemin", url: "/dismekan-3.jpeg" },
-        {
-          title: "Geniş Manzara Terası Masif Zemin Kaplama",
-          url: "/dismekan-4.jpeg",
-        },
-      ],
+      id: 3,
+      category: "deniz",
+      title: "Kavisli Yat Güverte Basamakları",
+      desc: "Gizli LED lineer kanalları ve yekpare kavisli basamak zanaati",
+      image: "/deniz-3.jpeg",
+      tag: "Kavisli İmalat",
     },
     {
-      id: "ic-mekan-1",
-      category: "ic-mekan",
-      categoryLabel: "Özel Ahşap & İç Mekan",
-      title: "Özel Ahşap & İç Mekan",
-      tagline:
-        "LED lineer konsol yüzer merdivenler, yekpare masalar ve butik mimari zanaat.",
-      material: "Masif Meşe • Doğal Ceviz • Cam & Çelik Taşıyıcı",
-      coverImage: "/ozel-1.jpeg",
-      description:
-        "İç mekanlarda ferahlık sağlayan gizli çelik omurgalı yüzer konsol merdivenler, lamine cam korkuluklar, yekpare masif ceviz masalar ve mekana özel butik zanaat çözümleri.",
-      specs: [
-        "Gizli Çelik Taşıyıcılı Konsol Yüzer Merdiven",
-        "Basamak Altı Gizli LED Lineer Aydınlatma",
-        "Lamine Cam Korkuluk Entegrasyonu",
-        "Projeye Özel Butik Masif Mobilya & Panel İmalatı",
-      ],
-      gallery: [
-        {
-          title: "LED Aydınlatmalı Konsol Yüzer Merdiven",
-          url: "/ozel-1.jpeg",
-        },
-        { title: "Cam Korkuluklu Masif Basamak Sistemi", url: "/ozel-2.jpeg" },
-        { title: "Yekpare Masif Ağaç Salon Masası", url: "/ozel-3.jpeg" },
-        {
-          title: "Özel Ahşap Bölme & Akustik Duvar Paneli",
-          url: "/ozel-4.jpeg",
-        },
-      ],
+      id: 4,
+      category: "deniz",
+      title: "Açık Deniz Tik Kaplama İskele",
+      desc: "A4 kalite paslanmaz çelik gizli bağlantılı güverte altyapısı",
+      image: "/deniz-4.jpeg",
+      tag: "Tik Güverte",
+    },
+    {
+      id: 5,
+      category: "deniz",
+      title: "Lüks Motoryat Baş Güverte Platformu",
+      desc: "Yüksek UV filtreli özel marin yağlama ve dikişsiz armuz fitil",
+      image: "/deniz-7.jpeg",
+      tag: "Yat Güverte",
+    },
+    {
+      id: 6,
+      category: "deniz",
+      title: "Katamaran Kıç Güverte Dinlenme Alanı",
+      desc: "1. sınıf fırınlanmış Burma Tik ahşap ile açık deniz konforu",
+      image: "/deniz-8.jpeg",
+      tag: "Katamaran Ahşap",
+    },
+    {
+      id: 7,
+      category: "deniz",
+      title: "Marin Kokpit & Entegre Masif Donanım",
+      desc: "Hassas CNC kesim ve el işçiliğiyle üretilmiş marin detaylar",
+      image: "/deniz-9.jpeg",
+      tag: "Kokpit Güverte",
+    },
+    {
+      id: 8,
+      category: "deniz",
+      title: "Mega Yat Yüzme Platformu Kaplaması",
+      desc: "Sürekli su temasına dayanıklı özel izolasyon ve elastik mastikleme",
+      image: "/deniz-10.jpeg",
+      tag: "Yüzme Platformu",
+    },
+
+    // ---------------- MİMARİ & DIŞ CEPHE (8 ADET) ----------------
+    {
+      id: 9,
+      category: "mimari",
+      title: "Bodrum Villa Ahşap Louvre & Panjur",
+      desc: "Güneş kırıcı hareketli ahşap panjur ve modern lamel cephe",
+      image: "/mimari-5.jpeg",
+      tag: "Dış Cephe Louvre",
+    },
+    {
+      id: 10,
+      category: "mimari",
+      title: "Doğal Taş & Masif Ahşap Villa Karkası",
+      desc: "Doğal dokuların modern mimari çizgilerle harmanlandığı lüks villa",
+      image: "/mimari-3.jpeg",
+      tag: "Ahşap & Taş",
+    },
+    {
+      id: 11,
+      category: "mimari",
+      title: "Modern Giriş Saçak & Tavan Lamel Sistemi",
+      desc: "Hava sirkülasyonlu gizli karkas ve gizli aydınlatma detayları",
+      image: "/mimari-1.jpeg",
+      tag: "Tavan Kaplama",
+    },
+    {
+      id: 12,
+      category: "mimari",
+      title: "Thermo-Wood Dikey Cephe Kaplaması",
+      desc: "Dış hava koşullarına dayanıklı termal modifiye edilmiş doğal ahşap",
+      image: "/mimari-2.jpg",
+      tag: "Dikey Cephe",
+    },
+    {
+      id: 13,
+      category: "mimari",
+      title: "Geniş Açıklıklı Ahşap Pergola & Gölgelik",
+      desc: "Statik çelik takviyeli taşıyıcı kirişler ve masif lamel gölgelik",
+      image: "/mimari-7.jpeg",
+      tag: "Villa Pergola",
+    },
+    {
+      id: 14,
+      category: "mimari",
+      title: "Akıllı Hareketli Ahşap Kanat Panjur",
+      desc: "Güneş açısına göre yönlenen motorlu ve kayar ahşap panjur sistemi",
+      image: "/mimari-8.jpeg",
+      tag: "Güneş Kırıcı",
+    },
+    {
+      id: 15,
+      category: "mimari",
+      title: "Taş Ev Modern Ahşap Saçak & Alınlık",
+      desc: "Geleneksel dokuya sadık kalınarak üretilen modern fırınlanmış ahşap",
+      image: "/mimari-9.jpeg",
+      tag: "Ahşap Saçak",
+    },
+    {
+      id: 16,
+      category: "mimari",
+      title: "Boutique Otel Ahşap Cephe Giydirme",
+      desc: "Gizli klips montajı ile yüzeyde vida izi bırakmayan kusursuz estetik",
+      image: "/mimari-10.jpeg",
+      tag: "Cephe Giydirme",
+    },
+
+    // ---------------- DIŞ MEKAN & DECK (8 ADET) ----------------
+    {
+      id: 17,
+      category: "dismekan",
+      title: "Kayalık Sahil Güneşlenme Platformu",
+      desc: "Doğal kayalık zemin üzerine statik karkasla oturtulmuş İroko deck",
+      image: "/ozel-3.jpeg",
+      tag: "Sahil Deck",
+    },
+    {
+      id: 18,
+      category: "dismekan",
+      title: "Modern Villa Açık Hava Masif Duşluk",
+      desc: "Güneşe ve suya dayanıklı masif ahşap duş ünitesi ve peyzaj entegrasyonu",
+      image: "/mimari-4.jpeg",
+      tag: "Masif Bahçe Duşu",
+    },
+    {
+      id: 19,
+      category: "dismekan",
+      title: "Lüks Rezidans Teras Zemin Deck Kaplama",
+      desc: "Eğim tahliyeli gizli klips altyapısı ve kaymaz yüzey işçiliği",
+      image: "/dismekan-1.jpeg",
+      tag: "Teras Deck",
+    },
+    {
+      id: 20,
+      category: "dismekan",
+      title: "Kıyı İskelesi & Ahşap Yürüyüş Yolu",
+      desc: "Dalga yüklerine karşı güçlendirilmiş taşıyıcı karkas üzeri tik deck",
+      image: "/dismekan-2.jpeg",
+      tag: "İskele Deck",
+    },
+    {
+      id: 21,
+      category: "dismekan",
+      title: "Sonsuzluk Havuzu Kenarı Teak Deck",
+      desc: "Klorlu havuz suyuna karşı ekstra koruyucu doğal yağ uygulaması",
+      image: "/dismekan-7.jpeg",
+      tag: "Havuz Deck",
+    },
+    {
+      id: 22,
+      category: "dismekan",
+      title: "Bahçe Peyzaj Masif Ahşap Dinlenme Terası",
+      desc: "Toprakla doğrudan temas etmeyen özel havalandırmalı kompozit takozlar",
+      image: "/dismekan-8.jpeg",
+      tag: "Peyzaj Terası",
+    },
+    {
+      id: 23,
+      category: "dismekan",
+      title: "Açık Alan Ahşap Jakuzi Çevre Platformu",
+      desc: "Nem direnci en üst düzey Thermo Dişbudak ile sıcak su direnci",
+      image: "/dismekan-9.jpeg",
+      tag: "Jakuzi Platformu",
+    },
+    {
+      id: 24,
+      category: "dismekan",
+      title: "Villa Giriş Ahşap Yüzer Köprü Yolu",
+      desc: "Gizli çelik taşıyıcılı, su üzerinde süzülen ahşap karşılama yolu",
+      image: "/dismekan-10.jpeg",
+      tag: "Yüzer Zemin Yolu",
+    },
+
+    // ---------------- ÖZEL İÇ MEKAN & MERDİVEN (8 ADET) ----------------
+    {
+      id: 25,
+      category: "ozel",
+      title: "Gizli Çelik Omurgalı Konsol Masif Merdiven",
+      desc: "Duvara gizlenmiş çelik konstrüksiyon üzerine masif meşe kılıf basamaklar",
+      image: "/ozel-1.jpeg",
+      tag: "Konsol Merdiven",
+    },
+    {
+      id: 26,
+      category: "ozel",
+      title: "Yekpare Doğal Ağaç Kenarlı Ceviz Yemek Masası",
+      desc: "Fatsa atölyesinde asırlık ceviz kütüğünden özel tasarım masif masa",
+      image: "/ozel-2.jpg",
+      tag: "Doğal Kütük Masa",
+    },
+    {
+      id: 27,
+      category: "ozel",
+      title: "Özel Tasarım Cam Korkuluklu Ahşap Basamak",
+      desc: "Şeffaf lamine cam korkuluklar ve gizli lineer aydınlatma",
+      image: "/ozel-4.jpeg",
+      tag: "Lüks Merdiven",
+    },
+    {
+      id: 28,
+      category: "ozel",
+      title: "Atölye İmalatı Özel Tasarım Masif Mobilya",
+      desc: "Tamamen el işçiliği, doğal cila ve birinci sınıf ahşap zanaati",
+      image: "/ozel-5.jpeg",
+      tag: "Özel Mobilya",
+    },
+    {
+      id: 29,
+      category: "ozel",
+      title: "Akustik Masif Ahşap İç Duvar Lamelleri",
+      desc: "Mekan akustiğini ve sıcaklığını artıran doğal meşe duvar panelleri",
+      image: "/ozel-7.jpeg",
+      tag: "Akustik Lamel",
+    },
+    {
+      id: 30,
+      category: "ozel",
+      title: "Masif Ağaç Şarap Mahzeni & Saklama Ünitesi",
+      desc: "Özel nem dengesine duyarlı termal ahşap raflar ve şık detaylar",
+      image: "/ozel-8.jpeg",
+      tag: "Şarap Mahzeni",
+    },
+    {
+      id: 31,
+      category: "ozel",
+      title: "Kavisli Helisel Masif Ahşap Merdiven",
+      desc: "Usta ellerde bükülerek şekillendirilen heykelsi döner ahşap gövde",
+      image: "/ozel-9.jpeg",
+      tag: "Helisel Merdiven",
+    },
+    {
+      id: 32,
+      category: "ozel",
+      title: "Yönetici Odası & Villa İçin Özel Ceviz Konsol",
+      desc: "Gömme pirinç detaylar ve soft-close gizli ahşap mekanizmalar",
+      image: "/ozel-10.jpeg",
+      tag: "Özel Konsol",
     },
   ];
 
@@ -152,182 +287,146 @@ export default function Projects() {
       ? projects
       : projects.filter((p) => p.category === activeTab);
 
-  const tabs = [
-    { key: "all", label: "Tüm Projeler" },
-    { key: "marin", label: "Marin Ahşap" },
-    { key: "cephe", label: "Mimari & Cephe" },
-    { key: "deck", label: "Dış Mekan & Deck" },
-    { key: "ic-mekan", label: "Özel Ahşap" },
-  ];
-
   return (
     <section
       id="uzmanlik"
-      className="py-24 bg-[#080d1a] text-white border-t border-slate-800/80 scroll-mt-16"
+      className="py-24 bg-[#080d1a] text-white scroll-mt-16"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Üst Başlık & Sekmeler */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-mono uppercase tracking-wider mb-3">
-              <Compass className="w-3.5 h-3.5" />
-              Üretim & Taahhüt Portfolyosu
-            </div>
-            <h2 className="text-3xl md:text-5xl font-serif tracking-tight text-white">
-              Uzmanlık Alanlarımız
-            </h2>
+        {/* Başlık Alanı */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-400/10 border border-amber-400/20 rounded-full text-amber-400 text-xs font-mono uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            Uygulama Portfolyosu
           </div>
-
-          {/* Filtre Sekmeleri */}
-          <div className="flex flex-wrap items-center gap-2 bg-slate-900/80 p-1.5 rounded-xl border border-slate-800">
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className={`px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all ${
-                  activeTab === tab.key
-                    ? "bg-amber-400 text-slate-950 font-semibold shadow-md"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800/50"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          <h2 className="text-3xl md:text-5xl font-serif tracking-tight text-white mb-4">
+            İmzamızı Taşıyan Projeler
+          </h2>
+          <p className="text-slate-400 text-sm md:text-base font-light">
+            Süperyatlardan lüks villalara, açık deniz güvertelerinden heykelsi
+            iç mekanlara uzanan seçkin imalatlarımız.
+          </p>
         </div>
 
-        {/* 4 Ana Kart Izgarası */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
+        {/* Kategori Filtre Butonları */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+          {categories.map((cat) => {
+            const Icon = cat.icon;
+            const count =
+              cat.id === "all"
+                ? projects.length
+                : projects.filter((p) => p.category === cat.id).length;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
+                  activeTab === cat.id
+                    ? "bg-amber-400 text-slate-950 shadow-lg shadow-amber-400/20 scale-105"
+                    : "bg-slate-900/90 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{cat.name}</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                    activeTab === cat.id
+                      ? "bg-slate-950 text-amber-400"
+                      : "bg-slate-800 text-slate-400"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Proje Kartları Izgarası (Grid) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredProjects.map((item) => (
             <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="group relative bg-[#0d1527] border border-slate-800/90 rounded-2xl overflow-hidden hover:border-amber-400/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl"
+              key={item.id}
+              className="group relative bg-[#0b1222] border border-slate-800/80 rounded-2xl overflow-hidden hover:border-amber-400/40 transition-all duration-500 flex flex-col shadow-lg"
             >
-              {/* Kapak Görseli */}
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+              {/* Fotoğraf Kutusu */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
                 <img
-                  src={project.coverImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[11px] font-medium text-amber-300">
-                  {project.categoryLabel}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                {/* Rozet */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-mono uppercase tracking-wider text-amber-300">
+                    {item.tag}
+                  </span>
                 </div>
-                <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
-                  <ArrowUpRight className="w-5 h-5" />
-                </div>
+
+                {/* Büyütme Butonu */}
+                <button
+                  onClick={() => setSelectedImage(item.image)}
+                  className="absolute bottom-3 right-3 p-2 bg-black/60 hover:bg-amber-400 hover:text-slate-950 backdrop-blur-md border border-white/10 rounded-xl text-white transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0"
+                  aria-label="Fotoğrafı büyüt"
+                >
+                  <ZoomIn className="w-4 h-4" />
+                </button>
               </div>
 
-              {/* Bilgi Alanı */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              {/* Bilgi Kutusu */}
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-[11px] font-mono text-slate-400 tracking-wider block mb-1">
-                    {project.material}
-                  </span>
-                  <h3 className="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
-                    {project.title}
+                  <h3 className="font-serif font-bold text-sm sm:text-base text-white mb-1 group-hover:text-amber-400 transition-colors">
+                    {item.title}
                   </h3>
-                  <p className="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
-                    {project.tagline}
+                  <p className="text-slate-400 text-xs font-light line-clamp-2 leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-amber-400 font-medium">
-                  <span>Detayları ve Fotoğrafları İncele</span>
-                  <span>→</span>
+                <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
+                  <span className="font-mono">
+                    MTS-{item.category.toUpperCase()}-0{item.id}
+                  </span>
+                  <a
+                    href="https://wa.me/905422387979"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-400 hover:text-amber-300 font-medium"
+                  >
+                    Detay Sor →
+                  </a>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* POPUP / MODAL GALERİSİ */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/85 backdrop-blur-md">
-          <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#0b1220] border border-slate-700/80 rounded-2xl overflow-y-auto p-6 md:p-8 text-white shadow-2xl">
-            {/* Kapat Butonu */}
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Başlık Alanı */}
-            <div className="mb-6 pr-8">
-              <span className="text-xs font-mono text-amber-400 tracking-wider uppercase">
-                {selectedProject.categoryLabel} • TEKNİK DETAYLAR
-              </span>
-              <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mt-1">
-                {selectedProject.title}
-              </h3>
-              <p className="text-slate-300 text-xs md:text-sm mt-3 leading-relaxed">
-                {selectedProject.description}
-              </p>
-            </div>
-
-            {/* Teknik Özellikler */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8 bg-slate-900/70 p-4 rounded-xl border border-slate-800">
-              {selectedProject.specs.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 text-xs text-slate-300"
-                >
-                  <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* 4 Fotoğraflı Galeri */}
-            <div className="mb-8">
-              <h4 className="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-3 flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                Uygulama ve İmalat Görselleri
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {selectedProject.gallery.map((g, idx) => (
-                  <div
-                    key={idx}
-                    className="relative h-44 rounded-xl overflow-hidden border border-slate-800 bg-slate-950"
-                  >
-                    <img
-                      src={g.url}
-                      alt={g.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                      <p className="text-[11px] font-medium text-white">
-                        {g.title}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Teklif Al Butonu */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
-              <span className="text-xs text-slate-400">
-                Bu alandaki projeniz için keşif ve mimari detay görüşmesi
-                başlatın.
-              </span>
-              <a
-                href={`https://wa.me/905422387979?text=Merhaba,%20${encodeURIComponent(
-                  selectedProject.title,
-                )}%20hakkında%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-semibold px-6 py-2.5 rounded-lg text-xs transition-colors"
+        {/* Modal / Büyütülmüş Fotoğraf Görüntüleyici */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center">
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 p-2 text-white/80 hover:text-white bg-slate-900 border border-slate-700 rounded-full"
+                aria-label="Kapat"
               >
-                Bu Proje İçin Teklif Alın
-              </a>
+                <X className="w-6 h-6" />
+              </button>
+              <img
+                src={selectedImage}
+                alt="Büyütülmüş Proje"
+                className="max-w-full max-h-[85vh] object-contain rounded-xl border border-slate-800 shadow-2xl"
+              />
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }
