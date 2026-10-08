@@ -38,21 +38,13 @@ export default function Projects() {
     {
       id: 3,
       category: "deniz",
-      title: "Açık Deniz İskele & Yanaşma Platformu",
-      desc: "Tuzlu su ve dalga yüklerine tam dirençli A4 paslanmaz bağlantılı güverte",
-      image: "/ozel-5.jpeg",
-      tag: "Marin İskele",
-    },
-    {
-      id: 4,
-      category: "deniz",
       title: "Yat Güvertesi İskelet & Karkas İmalatı",
       desc: "Hassas şantiye terazisinde kavisli omurga ve armuz fitil uygulaması",
       image: "/deniz-7.jpeg",
       tag: "Güverte Karkas",
     },
     {
-      id: 5,
+      id: 4,
       category: "deniz",
       title: "Marin Güverte Yağlama & Yüzey Koruma",
       desc: "Güneşin UV ışınlarına ve deniz suyuna karşı özel tik yağı bakımı",
@@ -60,7 +52,7 @@ export default function Projects() {
       tag: "Tik Bakımı",
     },
     {
-      id: 6,
+      id: 5,
       category: "deniz",
       title: "Motoryat Özel Tik Oturma & Güverte Detayı",
       desc: "Yüksek dayanımlı masif ağaç ile konforlu seyir güvertesi",
@@ -68,35 +60,27 @@ export default function Projects() {
       tag: "Marin Donanım",
     },
     {
-      id: 7,
+      id: 6,
       category: "deniz",
       title: "1. Sınıf Burma Tik Zemin Kaplaması",
       desc: "Dikişsiz elastik marin mastik dolgulu pürüzsüz güverte yüzeyi",
       image: "/deniz-10.jpeg",
       tag: "Yat Zemin",
     },
-    {
-      id: 8,
-      category: "deniz",
-      title: "Katamaran & Yat Baş Güverte Platformu",
-      desc: "Geniş açıklıklı, su tahliye kanallı marin ahşap imalatı",
-      image: "/deniz-1.jpeg",
-      tag: "Baş Güverte",
-    },
 
     // ==========================================
     // 2. MİMARİ & DIŞ CEPHE
     // ==========================================
     {
-      id: 9,
+      id: 7,
       category: "mimari",
       title: "Bodrum Villa Ahşap Panjur & Dış Cephe",
-      desc: "Güneş kırıcı hareketli masif ahşap kanatlar ve hava sirkülasyonlu cephe",
+      desc: "Güneş kırıcı hareketli masif ahşap kanatlar ve modern lamel cephe",
       image: "/ozel-1.jpeg",
       tag: "Villa Cephe",
     },
     {
-      id: 10,
+      id: 8,
       category: "mimari",
       title: "Thermo-Wood Lamel Dikey Cephe Kaplaması",
       desc: "Termal işlem görmüş, dönme ve çatlama yapmayan dış cephe giydirme",
@@ -104,15 +88,7 @@ export default function Projects() {
       tag: "Dikey Lamel",
     },
     {
-      id: 11,
-      category: "mimari",
-      title: "Doğal Taş & Masif Ahşap Korkuluk Uyumu",
-      desc: "Taş mimarisiyle bütünleşen fırınlanmış dayanıklı ahşap küpeşteler",
-      image: "/mimari-3.jpeg",
-      tag: "Taş & Ahşap",
-    },
-    {
-      id: 12,
+      id: 9,
       category: "mimari",
       title: "Villa Giriş Cephe & Alınlık Kaplama",
       desc: "Gizli çelik altyapı üzerine monte edilen fırınlanmış İroko cephe",
@@ -120,51 +96,35 @@ export default function Projects() {
       tag: "Dış Cephe",
     },
     {
-      id: 13,
+      id: 10,
       category: "mimari",
-      title: "Geniş Açıklıklı Masif Pergola & Gölgelik",
-      desc: "Açık alan yaşamını ferahlatan, statik mukavemetli ahşap tavan sistemi",
+      title: "Geniş Açıklıklı Masif Ahşap Pergola & Gölgelik",
+      desc: "Açık alan yaşamını ferahlatan, statik mukavemetli ahşap gölgelik sistemi",
       image: "/mimari-8.jpeg",
       tag: "Pergola",
     },
     {
-      id: 14,
+      id: 11,
       category: "mimari",
-      title: "Özel Tasarım Ahşap Çatı Saçağı",
+      title: "Özel Tasarım Masif Ahşap Çatı Saçağı",
       desc: "Dış hava şartlarına karşı gizli damlalıklı ve pahlı saçak detayı",
       image: "/mimari-9.jpeg",
       tag: "Çatı Saçak",
     },
     {
-      id: 15,
+      id: 12,
       category: "mimari",
       title: "Şantiye Cephe Louvre Montaj Aşaması",
       desc: "Sahada lazer teraziyle sıfır hata toleransıyla yürütülen montaj",
       image: "/mimari-10.jpeg",
       tag: "Şantiye Montaj",
     },
-    {
-      id: 16,
-      category: "mimari",
-      title: "Ahşap Sürgülü Güneş Kırıcı Panel",
-      desc: "Rüzgar ve güneş kontrolü sağlayan estetik masif kanat mekanizması",
-      image: "/ozel-1.jpeg",
-      tag: "Güneş Kırıcı",
-    },
 
     // ==========================================
     // 3. DIŞ MEKAN & DECK
     // ==========================================
     {
-      id: 17,
-      category: "dismekan",
-      title: "Açık Hava Masif Bahçe Duşluğu",
-      desc: "Suya ve güneşe dayanıklı ahşap lamel separatörlü lüks bahçe duşu",
-      image: "/mimari-1.jpeg",
-      tag: "Bahçe Duşluğu",
-    },
-    {
-      id: 18,
+      id: 13,
       category: "dismekan",
       title: "Kayalık Sahil İroko Güneşlenme Terası",
       desc: "Doğal kayalık zemin üzerine statik karkasla kurulan sahil deck platformu",
@@ -172,15 +132,7 @@ export default function Projects() {
       tag: "Sahil Deck",
     },
     {
-      id: 19,
-      category: "dismekan",
-      title: "Kıyı İskelesi & Ahşap Yürüyüş Yolu",
-      desc: "Deniz kenarı dalga hareketlerine esneyebilen dayanıklı iskele kaplaması",
-      image: "/ozel-5.jpeg",
-      tag: "İskele Platformu",
-    },
-    {
-      id: 20,
+      id: 14,
       category: "dismekan",
       title: "Lüks Havuz Başı Teak Deck Kaplama",
       desc: "Klorlu havuz sularına karşı kaymaz, radiuslu pah kenarlı zemin işçiliği",
@@ -188,7 +140,7 @@ export default function Projects() {
       tag: "Havuz Deck",
     },
     {
-      id: 21,
+      id: 15,
       category: "dismekan",
       title: "Geniş Alan Teras Zemin Döşemesi",
       desc: "Su tahliyesi için özel eğim verilmiş gizli klipsli deck altyapısı",
@@ -196,7 +148,7 @@ export default function Projects() {
       tag: "Teras Deck",
     },
     {
-      id: 22,
+      id: 16,
       category: "dismekan",
       title: "Doğal Peyzaj Ahşap Dinlenme Alanı",
       desc: "Bahçe ve peyzajla iç içe masif ahşap zemin oturma platformu",
@@ -204,35 +156,27 @@ export default function Projects() {
       tag: "Peyzaj Deck",
     },
     {
-      id: 23,
+      id: 17,
       category: "dismekan",
       title: "Statik Çelik Karkas Üzeri Deck Montajı",
       desc: "Topraktan izole edilmiş, havalandırma boşluklu uzun ömürlü zemin",
       image: "/dismekan-10.jpeg",
       tag: "Zemin Karkas",
     },
-    {
-      id: 24,
-      category: "dismekan",
-      title: "Periyodik Ahşap Deck Bakımı & Koruma",
-      desc: "Ahşabın grileşmesini önleyen ve doğal rengini koruyan tik yağı uygulaması",
-      image: "/ozel-3.jpeg",
-      tag: "Deck Bakımı",
-    },
 
     // ==========================================
     // 4. ÖZEL İÇ MEKAN & ZANAAT
     // ==========================================
     {
-      id: 25,
+      id: 18,
       category: "ozel",
       title: "Yekpare Doğal Kenarlı Ceviz Yemek Masası",
-      desc: "Doğal damar ve hareleri korunmuş, usta ellerde işlenmiş masif masa",
+      desc: "Doğal damar ve hareleri korunmuş, Fatsa atölyesinde işlenmiş masif masa",
       image: "/ozel-2.jpg",
       tag: "Masif Masa",
     },
     {
-      id: 26,
+      id: 19,
       category: "ozel",
       title: "Taş Mimari İçi Ahşap Merdiven & Trabzan",
       desc: "Masif basamaklar ve geleneksel el oyması ahşap küpeşte zanaati",
@@ -240,15 +184,7 @@ export default function Projects() {
       tag: "Masif Merdiven",
     },
     {
-      id: 27,
-      category: "ozel",
-      title: "Özel Tasarım Masif Banyo & Bahçe Donatısı",
-      desc: "Islak hacimlere tam dayanıklı özel cilalı masif ahşap ünite",
-      image: "/mimari-1.jpeg",
-      tag: "Özel Donatı",
-    },
-    {
-      id: 28,
+      id: 20,
       category: "ozel",
       title: "Akustik Masif Ahşap İç Duvar Lamelleri",
       desc: "Mekan akustiğini ve sıcaklığını artıran doğal meşe duvar panelleri",
@@ -256,15 +192,15 @@ export default function Projects() {
       tag: "Akustik Lamel",
     },
     {
-      id: 29,
+      id: 21,
       category: "ozel",
-      title: "Özel Masif Ahşap Saklama Ünitesi",
+      title: "Özel Masif Ahşap Saklama & Raf Ünitesi",
       desc: "Nem dengesi gözetilerek üretilen özel kiler ve raf sistemleri",
       image: "/ozel-8.jpeg",
       tag: "Özel İmalat",
     },
     {
-      id: 30,
+      id: 22,
       category: "ozel",
       title: "Kavisli Helisel Masif Ahşap Zanaati",
       desc: "Bükümlü basamak dönüşleri ve milimetrik alıştırma işçiliği",
@@ -272,20 +208,12 @@ export default function Projects() {
       tag: "Kavisli Zanaat",
     },
     {
-      id: 31,
+      id: 23,
       category: "ozel",
       title: "Butik İç Mekan Masif Ahşap Kaplama",
       desc: "Mimari projelere özel tasarlanmış damar takipli iç mekan çözümleri",
       image: "/ozel-10.jpeg",
       tag: "İç Mimari",
-    },
-    {
-      id: 32,
-      category: "ozel",
-      title: "Lüks Villa Özel Tasarım Ahşap Doğrama",
-      desc: "Geniş cam cephelerle bütünleşen doğal masif çerçeve detayları",
-      image: "/ozel-2.jpg",
-      tag: "Özel Doğrama",
     },
   ];
 
